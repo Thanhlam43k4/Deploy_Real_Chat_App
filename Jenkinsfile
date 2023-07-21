@@ -1,10 +1,5 @@
 pipeline{
-    agent {
-        docker {
-            image 'node:lts-bullseye-slim' 
-            args '-p 3000:3000'
-        }
-    }
+    agent any
     stages {
         stage('Build'){
             steps{
@@ -16,5 +11,10 @@ pipeline{
                 sh './jenkins/scripts/test.sh'
             }
         }
+        stage('Deploy'){
+            steps{
+                echo 'Deploying .....'
+            }
      }
+}
 }
