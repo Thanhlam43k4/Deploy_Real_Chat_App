@@ -3,12 +3,8 @@ pipeline{
     stages {
         stage('Build'){
             steps{
-                echo "Branch is ${env.BRANCH_NAME}..."
-
-                withNPM(npmrcConfig:'my-custom-npmrc') {
-                echo "Performing npm build..."
-                sh 'npm install'
-                }
+                
+                bat 'npm install'
             }
         }
         stage('Test'){
